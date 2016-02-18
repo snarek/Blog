@@ -18,18 +18,19 @@
 					<li><a href="">Home</a></li>
 				</ul>
 			</aside>
-					<?php
-						$res = $mysqli->query("SELECT * FROM posts");
-						if ($res->num_rows>0) {
-							while ($row = $res->fetch_assoc()){
-								echo '<article>
-											<h3>' . $row['title'] . '</h3>
-											<img src="img/articleImg.jpg" />
-											<p>' . $row['m_desc'] . '<a href="view.php?id=' . $row['id'] . '">more...</a></p>
-										</article>';
-							};
-						}
-					?>
+        <form method='post' id='post'>
+					Name</br>
+          <input type="text" name="name"></input></br>
+          Surname</br>
+          <input type="text" name="surname"></input></br>
+          Email</br>
+          <input type="email" name="email"></input></br>
+					Post</br>
+					<textarea name="post"></textarea></br>
+					<a href="index.php">
+						<input type="submit" name="submit" value="POST" id='submit'></input>
+					</a>
+        </form>
 		</section>
 		<footer>
 			Narek Sargsyan`s blog (c) 2016
