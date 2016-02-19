@@ -20,13 +20,13 @@
 			</aside>
         <form method='post' id='post'>
 					Name</br>
-          <input type="text" name="name"></input></br>
+          <input type="text" name="name" required></input></br>
           Surname</br>
-          <input type="text" name="surname"></input></br>
+          <input type="text" name="surname" required></input></br>
           Email</br>
-          <input type="email" name="email"></input></br>
+          <input type="email" name="email" required></input></br>
 					Post</br>
-					<textarea name="post"></textarea></br>
+					<textarea name="post" required></textarea></br>
 					<a href="index.php">
 						<input type="submit" name="submit" value="POST" id='submit'></input>
 					</a>
