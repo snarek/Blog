@@ -1,5 +1,6 @@
 <?php
 	session_start();
+			print_r($_SESSION);
 	if (isset($_POST['send'])) {
 		$from=htmlspecialchars($_POST['from']);
 		$email=htmlspecialchars($_POST['email']);
@@ -17,6 +18,7 @@
 		$header.= "X-Priority: 1\r\n";
 		mail("snarek@yandex.ru", $subject, $message, $header);
 		header("Location: success.php?send=1");
+
 		exit;
 	}
 ?>
@@ -42,13 +44,43 @@
 				<h2>Contact Us</h2>
 				<form name='feedback' action='' method="post">
 					<label>Name</label><br />
-					<input type="text" name="from" required value="<?= $_SESSION['from'] ?>"></input><br />
+					<input type="text" name="from" required value="
+					<?php
+						if(isset($_SESSION['from'])){
+							echo $_SESSION['from'];
+						}else{
+							echo '';
+						}
+					?>">
+					</input><br />
 					<label>Email</label><br />
-					<input type="email" name="email" required value="<?= $_SESSION['email'] ?>"></input><br />
+					<input type="email" name="email" required value="
+					<?php
+						if(isset($_SESSION['email'])){
+							echo $_SESSION['email'];
+						}else{
+							echo '';
+						}
+					?>"></input><br />
 					<label>Subject</label><br />
-					<input type="text" name="subject" required value="<?= $_SESSION['subject'] ?>"></input><br />
+					<input type="text" name="subject" required value="
+					<?php
+						if(isset($_SESSION['subject'])){
+							echo $_SESSION['subject'];
+						}else{
+							echo '';
+						}
+					?>"></input><br />
 					<label>Message</label><br />
-					<textarea name="message" cols="30" rows="10" required><?= $_SESSION['message'] ?></textarea><br />
+					<textarea name="message" cols="30" rows="10" required>
+						<?php
+							if(isset($_SESSION['message'])){
+								echo $_SESSION['message'];
+							}else{
+								echo '';
+							}
+						?>
+					</textarea><br />
 					<input type="submit" name="send" value="Send"></input>
 				</form>
 		</section>
